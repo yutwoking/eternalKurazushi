@@ -1,0 +1,14 @@
+version: '3'
+services:
+    postgres:
+        build:
+            context: .
+            dockerfile: Dockerfile-postgres
+        environment:
+            POSTGRES_USER: kura
+            POSTGRES_PASSWORD: kura
+            POSTGRES_DB: kura
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./initdb.d:/docker-entrypoint-initdb.d
