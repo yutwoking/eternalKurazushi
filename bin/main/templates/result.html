@@ -7,12 +7,15 @@
 <body>
 <table border="1">
   <tr>
-    <th>種類</th><th>商品名</th><th>価格</th>
+    <th>種類</th><th>商品名</th><th>価格（税抜き）</th><th>カロリー</th><th>提供エリア</th><th>お持ち帰り</th>
   </tr>
   <tr th:each="menu : ${list}">
     <td th:text="${menu.type}"></td>
     <td th:text="${menu.name}"></td>
-    <td th:text="${menu.price}"></td>
+    <td th:text="${menu.price} + '円'"></td>
+    <td th:text="${menu.kcal} + 'kcal'"></td>
+    <td th:text="${menu.area}"></td>
+    <td th:text="${menu.takeout} ? '可' : '不可'"></td>
 </tr>
 </table>
 <p th:text="${sum}" class="sum"></p>
