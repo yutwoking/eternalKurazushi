@@ -2,9 +2,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>無限くら寿司ガチャ</title>
 </head>
 <body>
-result
+<table border="1">
+  <tr>
+    <th>種類</th><th>商品名</th><th>価格</th>
+  </tr>
+  <tr th:each="menu : ${list}">
+    <td th:text="${menu.type}"></td>
+    <td th:text="${menu.name}"></td>
+    <td th:text="${menu.price}"></td>
+</tr>
+</table>
+<p th:text="${sum}" class="sum"></p>
+
+   <form method="POST" action="/result">
+       <div>
+           <p>ランチ or ディナー</p>
+           <input id="radio_lunch" type="radio" name="radio_1" value="lunch">
+           <label for="radio_lunch">ランチ</label>
+           <input id="radio_dinner" type="radio" name="radio_1" value="dinner">
+           <label for="radio_dinner">ディナー</label>
+       </div>
+       <div>
+           <p>エリア</p>
+           <input id="radio_east" type="radio" name="radio_2" value="east">
+           <label for="radio_east">東日本</label>
+           <input id="radio_west" type="radio" name="radio_2" value="west">
+           <label for="radio_west">西日本</label>
+           <input id="radio_kyusyu" type="radio" name="radio_2" value="kyusyu">
+           <label for="radio_kyusyu">九州・沖縄</label>
+       </div>
+       <div style="margin: 2rem 0rem">
+           <input type="submit" value="ガチャを回す">
+       </div>
+   </form>
 </body>
 </html>

@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>無限くら寿司ガチャ</title>
+   <meta charset="utf-8"/>
+   <link rel="stylesheet" href="style.css">
+   <title>無限くら寿司ガチャ</title>
 </head>
 <body>
-<table border="1">
-  <tr>
-    <th>種類</th><th>商品名</th><th>価格</th>
-  </tr>
-  <tr th:each="menu : ${list}">
-    <td th:text="${menu.type}"></td>
-    <td th:text="${menu.name}"></td>
-    <td th:text="${menu.price}"></td>
-</tr>
-</table>
-<p th:text="${sum}" class="sum"></p>
-
+<main>
+   <h1>無限くら寿司ガチャ</h1>
+   [ランチ or ディナー] と [エリア] を選択してください。
+   <p th:text="ランチは税込み500円、ディナーは1000円超えで組み合わせをランダム表示！" class="description"></p>
    <form method="POST" action="/result">
        <div>
            <p>ランチ or ディナー</p>
@@ -38,5 +31,6 @@
            <input type="submit" value="ガチャを回す">
        </div>
    </form>
+</main>
 </body>
 </html>
