@@ -23,10 +23,9 @@ public class MenuCaches {
 
 	private MenuCaches() {
 		super();
-		load();
 	}
 
-	private void load() {
+	public void load() {
 		List<MenuModelForSearch> li = new LinkedList<>();
 		tm.required(() -> {
 			menuDao.selectAll().forEach(menu -> {
@@ -35,6 +34,7 @@ public class MenuCaches {
 		});
 
 		menuList = li;
+		System.out.println("menu cache loaded");
 	}
 
 	public static MenuCaches getSingleton() {
