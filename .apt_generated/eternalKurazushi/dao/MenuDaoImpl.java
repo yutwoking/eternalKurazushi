@@ -1,7 +1,7 @@
 package eternalKurazushi.dao;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "2.24.0" }, date = "2020-11-11T00:44:56.748+0900")
+@javax.annotation.Generated(value = { "Doma", "2.24.0" }, date = "2020-11-11T02:15:32.385+0900")
 public class MenuDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements eternalKurazushi.dao.MenuDao {
 
     static {

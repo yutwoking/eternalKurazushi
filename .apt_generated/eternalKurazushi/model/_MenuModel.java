@@ -1,7 +1,7 @@
 package eternalKurazushi.model;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "2.24.0" }, date = "2020-11-11T00:44:56.426+0900")
+@javax.annotation.Generated(value = { "Doma", "2.24.0" }, date = "2020-11-11T02:15:32.339+0900")
 public final class _MenuModel extends org.seasar.doma.jdbc.entity.AbstractEntityType<eternalKurazushi.model.MenuModel> {
 
     static {
