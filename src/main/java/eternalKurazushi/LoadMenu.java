@@ -22,14 +22,14 @@ import eternalKurazushi.model.MenuModel;
 
 public class LoadMenu {
 
-    public static void main(String[] args) throws IOException {
+    public static void init() throws IOException {
 
     	ResourceBundle rb = ResourceBundle.getBundle("application");
     	String url = rb.getString("menu.url");
     	List<MenuModel> models = loadMenuFromSite(url);
 
     	RegisterToRDB(models);
-    	System.out.println("finish");
+    	System.out.println("load menu from site finished");
     }
 
     private static List<MenuModel>  loadMenuFromSite(String url) throws IOException{

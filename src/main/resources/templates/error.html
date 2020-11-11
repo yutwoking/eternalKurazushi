@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css">
+<title>無限くら寿司ガチャ</title>
+</head>
+<body bgcolor=#99FFFF>
+	<div style="text-align: center">
+		<main>
+			<h1>無限くら寿司ガチャ</h1>
+			<font color="red"><b>[ランチ or ディナー] と [エリア] を選択してください。</b></font>
+			<p th:text="ランチは税込み500円、ディナーは1000円超えで組み合わせをランダム表示！"
+				class="description"></p>
+			<form method="POST" action="/result">
+				<div>
+					<b>ランチ or ディナー</b><br>
+					<input id="radio_lunch" type="radio" name="radio_1" value="ランチ">
+					<label for="radio_lunch">ランチ</label> <input id="radio_dinner"
+						type="radio" name="radio_1" value="ディナー"> <label
+						for="radio_dinner">ディナー</label>
+				</div><br>
+				<div>
+					<b>エリア</b><br>
+					<input id="radio_east" type="radio" name="radio_2" value="東日本">
+					<label for="radio_east">東日本</label> <input id="radio_west"
+						type="radio" name="radio_2" value="西日本"> <label
+						for="radio_west">西日本</label> <input id="radio_kyusyu" type="radio"
+						name="radio_2" value="九州・沖縄"> <label for="radio_kyusyu">九州・沖縄</label>
+				</div>
+				<div style="margin: 2rem 0rem">
+					<input type="submit" value="ガチャを回す" style="width:150px;height:50px">
+				</div>
+			</form>
+		</main>
+	</div>
+</body>
+</html>
