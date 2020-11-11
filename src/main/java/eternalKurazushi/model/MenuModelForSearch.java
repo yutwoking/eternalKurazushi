@@ -39,7 +39,7 @@ public class MenuModelForSearch extends MenuModel{
 		}
 
 		if(this.area.contains("九州")) {
-			res.add(Areas.西日本);
+			res.add(Areas.九州);
 		}
 
 		return res;

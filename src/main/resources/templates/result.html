@@ -4,42 +4,48 @@
 <meta charset="UTF-8">
 <title>無限くら寿司ガチャ</title>
 </head>
-<body>
-<table border="1">
-  <tr>
-    <th>種類</th><th>商品名</th><th>価格（税抜き）</th><th>カロリー</th><th>提供エリア</th><th>お持ち帰り</th>
-  </tr>
-  <tr th:each="menu : ${list}">
-    <td th:text="${menu.type}"></td>
-    <td th:text="${menu.name}"></td>
-    <td th:text="${menu.price} + '円'"></td>
-    <td th:text="${menu.kcal} + 'kcal'"></td>
-    <td th:text="${menu.area}"></td>
-    <td th:text="${menu.takeout} ? '可' : '不可'"></td>
-</tr>
-</table>
-<p th:text="${sum}" class="sum"></p>
+<body bgcolor=#99FFFF>
+	<div style="text-align: center">
+		<main>
+			<h1>無限くら寿司ガチャ</h1>
+			<p th:text="${time} + '  /  ' + ${area}" class="description"></p>
+			<table border="1" align="center">
+				<tr>
+					<th>種類</th>
+					<th>商品名</th>
+					<th>価格（税抜き）</th>
+					<th>カロリー</th>
+					<th>提供エリア</th>
+					<th>お持ち帰り</th>
+				</tr>
+				<tr th:each="menu : ${list}">
+					<td th:text="${menu.type}"></td>
+					<td th:text="${menu.name}"></td>
+					<td th:text="${menu.price} + '円'"></td>
+					<td th:text="${menu.kcal} + 'kcal'"></td>
+					<td th:text="${menu.area}"></td>
+					<td th:text="${menu.takeout} ? '可' : '不可'"></td>
+				</tr>
+			</table>
+			<h3>
+				<p th:text="${sum}" class="sum"></p>
+			</h3>
+			<br>
 
-   <form method="POST" action="/result">
-       <div>
-           <p>ランチ or ディナー</p>
-           <input id="radio_lunch" type="radio" name="radio_1" value="lunch">
-           <label for="radio_lunch">ランチ</label>
-           <input id="radio_dinner" type="radio" name="radio_1" value="dinner">
-           <label for="radio_dinner">ディナー</label>
-       </div>
-       <div>
-           <p>エリア</p>
-           <input id="radio_east" type="radio" name="radio_2" value="east">
-           <label for="radio_east">東日本</label>
-           <input id="radio_west" type="radio" name="radio_2" value="west">
-           <label for="radio_west">西日本</label>
-           <input id="radio_kyusyu" type="radio" name="radio_2" value="kyusyu">
-           <label for="radio_kyusyu">九州・沖縄</label>
-       </div>
-       <div style="margin: 2rem 0rem">
-           <input type="submit" value="ガチャを回す">
-       </div>
-   </form>
+			<form method="POST" action="/result">
+				<input type="hidden" name="radio_1" th:value="${time}"> <input
+					type="hidden" name="radio_2" th:value="${area}">
+				<div style="margin: 2rem 0rem">
+					<input type="submit" value="同じ条件でもう一度ガチャを回す"
+						style="width: 250px; height: 50px">
+				</div>
+			</form>
+			<form method="GET" action="/">
+				<div style="margin: 2rem 0rem">
+					<input type="submit" value="戻る">
+				</div>
+			</form>
+		</main>
+	</div>
 </body>
 </html>

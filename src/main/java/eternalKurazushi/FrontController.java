@@ -25,26 +25,30 @@ public class FrontController {
 			return "error";
 		}
 
-		boolean isLunch = eatTime.equals("lunch") ? true : false;
+		boolean isLunch = eatTime.equals("ランチ") ? true : false;
 		Areas area = Areas.東日本;
-		if (areaString.equals("west")) {
+		if (areaString.equals("西日本")) {
 			area = Areas.西日本;
-		} else if (areaString.equals("kyusyu")) {
+		} else if (areaString.equals("九州・沖縄")) {
 			area = Areas.九州;
 		}
 
 		List<MenuModelForSearch> gachaResult = Gacha.getResult(area, isLunch);
 		model.addAttribute("list", gachaResult);
 		model.addAttribute("sum", getSumString(gachaResult));
+		model.addAttribute("time", eatTime);
+		model.addAttribute("area", areaString);
 		return "result";
 	}
 
 	private String getSumString(List<MenuModelForSearch> gachaResult) {
 		int sumPrice = 0;
+		int sumKcal = 0;
 		for (MenuModelForSearch menu : gachaResult) {
 			sumPrice += menu.getPrice();
+			sumKcal += menu.getKcal();
 		}
 		long sumPriceWithTax =  Math.round(sumPrice * 1.1);
-		return "合計 " + sumPrice + "円（税込み " + sumPriceWithTax + "円）";
+		return "合計 " + sumPrice + "円（税込み " + sumPriceWithTax + "円） " + gachaResult.size() + "品" + sumKcal + "kcal";
 	}
 }
