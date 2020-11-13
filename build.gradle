@@ -82,6 +82,10 @@ dependencies {
 
 }
 
+bootJar {
+    launchScript()
+}
+
 application {
     // Define the main class for the application
     mainClassName = 'eternalKurazushi.ServerLuncher'
